@@ -41,6 +41,11 @@ func validateCode(code string) bool {
 }
 
 func main() {
+	if len(os.Args) < 2 {
+		color.Red("Unspecified host")
+		color.White("Usage: parking-client {hostname}")
+		os.Exit(1)
+	}
 	host := os.Args[1]
 	reader := bufio.NewReader(os.Stdin)
 	color.Green("Parking system client started")
